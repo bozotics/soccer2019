@@ -3366,9 +3366,9 @@ design rules under a new name.</description>
 <attribute name="NAME" x="17.349" y="91" size="0.6" layer="26" font="vector" ratio="12" rot="MR270" align="center"/>
 <attribute name="VALUE" x="28.524" y="91" size="0.5" layer="28" font="vector" ratio="13" rot="MR270" align="center"/>
 </element>
-<element name="3DIO1" library="diode" library_urn="urn:adsk.eagle:library:210" package="SMB" package3d_urn="urn:adsk.eagle:package:43404/2" value="SS510" x="22" y="36" smashed="yes">
-<attribute name="NAME" x="19.841" y="38.159" size="1.27" layer="25"/>
-<attribute name="VALUE" x="19.841" y="32.571" size="1.27" layer="27"/>
+<element name="3DIO1" library="diode" library_urn="urn:adsk.eagle:library:210" package="SMB" package3d_urn="urn:adsk.eagle:package:43404/2" value="SS510" x="-74" y="39" smashed="yes">
+<attribute name="NAME" x="-76.159" y="41.159" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-76.159" y="35.571" size="1.27" layer="27"/>
 </element>
 <element name="SS54" library="diode" library_urn="urn:adsk.eagle:library:210" package="SMB" package3d_urn="urn:adsk.eagle:package:43404/2" value="5A/40V" x="-18" y="50" smashed="yes">
 <attribute name="NAME" x="-20.159" y="52.159" size="1.27" layer="25"/>
@@ -3915,8 +3915,8 @@ design rules under a new name.</description>
 <contactref element="3L1" pad="2"/>
 <contactref element="3L2" pad="2"/>
 <wire x1="49" y1="34.05" x2="37" y2="34.05" width="0" layer="19" extent="1-1"/>
-<wire x1="24.2" y1="36" x2="37" y2="34.05" width="0" layer="19" extent="1-1"/>
-<wire x1="-37" y1="66" x2="24.2" y2="36" width="0" layer="19" extent="1-1"/>
+<wire x1="-71.8" y1="39" x2="37" y2="34.05" width="0" layer="19" extent="1-1"/>
+<wire x1="-37" y1="66" x2="-71.8" y2="39" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCC_1">
 <contactref element="3R1" pad="2"/>
@@ -3927,7 +3927,7 @@ design rules under a new name.</description>
 <wire x1="-27" y1="58" x2="64" y2="49" width="0" layer="19" extent="1-1"/>
 <wire x1="-44.92" y1="66" x2="-27" y2="58" width="0" layer="19" extent="1-1"/>
 <wire x1="31.85" y1="60" x2="-44.92" y2="66" width="0" layer="19" extent="1-1"/>
-<wire x1="19.8" y1="36" x2="-44.92" y2="66" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.2" y1="39" x2="-44.92" y2="66" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$37">
 <contactref element="U$3" pad="1"/>
