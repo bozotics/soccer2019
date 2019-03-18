@@ -3,7 +3,7 @@
 <eagle version="9.3.1">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -25243,6 +25243,22 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="3J2" gate="J$1" pin="1"/>
 <wire x1="231.14" y1="165.1" x2="231.14" y2="160.02" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="3D1" gate="G$1" pin="C"/>
+<wire x1="71.12" y1="157.48" x2="91.44" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="3U2" gate="G$1" pin="PA0"/>
+<pinref part="3U2" gate="G$1" pin="PW0"/>
+<wire x1="91.44" y1="149.86" x2="93.98" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="149.86" x2="91.44" y2="157.48" width="0.1524" layer="91"/>
+<junction x="91.44" y="149.86"/>
+<wire x1="91.44" y1="157.48" x2="101.6" y2="157.48" width="0.1524" layer="91"/>
+<junction x="91.44" y="157.48"/>
+<pinref part="3C4" gate="G$1" pin="+"/>
+<wire x1="101.6" y1="157.48" x2="101.6" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="SUPPLY21" gate="G$1" pin="VCC_2"/>
+<wire x1="101.6" y1="160.02" x2="101.6" y2="157.48" width="0.1524" layer="91"/>
+<junction x="101.6" y="157.48"/>
+</segment>
 </net>
 <net name="SOLENOIDON1" class="0">
 <segment>
@@ -25411,24 +25427,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="73.66" y1="144.78" x2="63.5" y2="144.78" width="0.1524" layer="91"/>
 <junction x="63.5" y="144.78"/>
 <wire x1="63.5" y1="144.78" x2="63.5" y2="142.24" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="3D1" gate="G$1" pin="C"/>
-<pinref part="3C4" gate="G$1" pin="+"/>
-<wire x1="71.12" y1="157.48" x2="91.44" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="157.48" x2="101.6" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="157.48" x2="101.6" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="3U2" gate="G$1" pin="PA0"/>
-<pinref part="3U2" gate="G$1" pin="PW0"/>
-<wire x1="91.44" y1="149.86" x2="93.98" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="149.86" x2="91.44" y2="157.48" width="0.1524" layer="91"/>
-<junction x="91.44" y="149.86"/>
-<junction x="91.44" y="157.48"/>
-<pinref part="SUPPLY21" gate="G$1" pin="VCC_2"/>
-<wire x1="101.6" y1="157.48" x2="101.6" y2="160.02" width="0.1524" layer="91"/>
-<junction x="101.6" y="157.48"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
