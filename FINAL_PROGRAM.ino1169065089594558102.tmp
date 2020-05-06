@@ -1,0 +1,68 @@
+#include <i2c_t3.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_BNO055_t3.h>
+#include <utility/imumaths.h>
+#include <math.h>
+
+const int FL_A = 26; const int FR_A = 29; const int BL_A = 25; const int BR_A = 30; 
+const int FL_B = 27; const int FR_B = 28; const int BL_B = 24; const int BR_B = 31; 
+const int FL_PWM = 3; const int FR_PWM = 4; const int BL_PWM=2; const int BR_PWM = 5;
+const int SIG0 = 23; const int SIG1 = 22; const int SIG2 = 21; const int SIG3 = 20;
+const int ALOG_1 = 33; const int ALOG_2 = 34; const int ALOG_3 = 35;
+
+const int sigTable[16][4] = {
+  {0,0,0,0}, //0
+  {1,0,0,0}, //1
+  {0,1,0,0}, //2
+  {1,1,0,0}, //3
+  {0,0,1,0}, //4
+  {1,0,1,0}, //5
+  {0,1,1,0}, //6
+  {1,1,1,0}, //7
+  {0,0,0,1}, //8
+  {1,0,0,1}, //9
+  {0,1,0,1}, //10
+  {1,1,0,1}, //11
+  {0,0,1,1}, //12
+  {1,0,1,1}, //13
+  {0,1,1,1}, //14
+  {1,1,1,1}  //15
+};
+const int lightThresh[48] = {0};
+const float ANGULAR_MULT = 0.01;
+
+int FLout, FRout, BLout, BRout,
+lightVals[48], lightCnt;
+float cmpoffset, cmpangle, angleError;
+unsigned long lightTimer;
+
+Adafruit_BNO055 bno = Adafruit_BNO055(WIRE_BUS, -1, BNO055_ADDRESS_A, I2C_MASTER, I2C_PINS_18_19, I2C_PULLUP_EXT, I2C_RATE_400, I2C_OP_MODE_ISR);
+void setup() {
+  Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
+  Serial.begin(115200);
+  bno.begin();
+  bno.setExtCrystalUse(true);
+
+  pinMode(2,OUTPUT);pinMode(3,OUTPUT);pinMode(4,OUTPUT);pinMode(5,OUTPUT);
+  pinMode(24,OUTPUT);pinMode(26,OUTPUT);pinMode(28,OUTPUT);pinMode(30,OUTPUT);
+  pinMode(25,OUTPUT);pinMode(27,OUTPUT);pinMode(29,OUTPUT);pinMode(31,OUTPUT);
+  analogWriteFrequency(2,10000);
+  analogWriteFrequency(3,10000);
+  analogWriteFrequency(4,10000);
+  analogWriteFrequency(5,10000);
+  
+  delay(2000);
+  readIMU();
+  cmpoffset=cmpangle;
+  pinMode(LED_BUILTIN,OUTPUT);
+  digitalWrite(LED_BUILTIN,HIGH);  
+}
+
+void loop() {
+  //angular_drive(60,0,0);
+  readIMU();
+  processIMU();
+  Serial.println(cmpangle);
+  delay(10);
+  //move_OUT();
+}
